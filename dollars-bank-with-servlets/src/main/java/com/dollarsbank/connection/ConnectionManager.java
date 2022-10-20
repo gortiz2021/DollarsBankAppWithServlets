@@ -11,7 +11,7 @@ public class ConnectionManager {
 	// Interface + sql Enginge + sql server ip address (localhost is an alias) + port number + db name
 	private static final String URL = "jdbc:mysql://localhost:3306/dollarsbank_db";
 	// for mac, add: ?serverTimezone=EST5EDT
-	private static final String USERNAME = "root";  // Mac might be Root@123, from the guide
+	private static final String USERNAME = "root";
 	private static final String PASSWORD = "root";
 	
 	public static Connection getConnection() {
@@ -31,19 +31,19 @@ public class ConnectionManager {
 		
 	}
 
-	public static void main(String[] args) {
-		
-		Connection conn = ConnectionManager.getConnection();
-		
-		try {
-			conn.close();
-			//System.out.println("Connection closed.");
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+//	public static void main(String[] args) {
+//		
+//		Connection conn = ConnectionManager.getConnection();
+//		
+//		try {
+//			conn.close();
+//			System.out.println("Connection closed.");
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 }
 
