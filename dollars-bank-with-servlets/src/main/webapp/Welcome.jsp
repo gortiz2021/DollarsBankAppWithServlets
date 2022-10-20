@@ -30,16 +30,16 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="./">Home</a> 
-					<a class="nav-link" href="#">Login</a> 
-					<a class="nav-link" href="#">Register</a>
+					<a class="nav-link" aria-current="page" href="./">Home</a> 
+					<a class="nav-link" href="#"><%= request.getSession().getAttribute("currentUser")%></a> 
+					<a class="nav-link" href="LogoutServlet">Logout</a>
 					<!-- <a class="nav-link disabled">Disabled</a> -->
 				</div>
 			</div>
 		</div>
 	</nav>
 
-	<h1>Welcome!</h1>
+	<h1>Welcome! You are successfully logged in.</h1>
 
 </body>
 </html>

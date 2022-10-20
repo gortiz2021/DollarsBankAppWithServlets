@@ -2,7 +2,7 @@ package com.dollarsbank.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+//import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,11 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.dollarsbank.connection.ConnectionManager;
+//import com.dollarsbank.connection.ConnectionManager;
 
-/**
- * Servlet implementation class LoginServlet
- */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -47,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 			
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
+				request.getSession().setAttribute("currentUser", username);
 				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
 				rd.forward(request, response);
 			}

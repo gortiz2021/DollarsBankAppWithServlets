@@ -41,6 +41,11 @@
 			</div>
 		</div>
 	</nav>
+	
+	<div>
+		<h1 class="display-1">Welcome to Dollars Bank!</h1>
+		<img src="https://www.ubackground.com/_ph/2/139447202.jpg" class="img-fluid" alt="Clean background for home">
+	</div>
 
 
 </body>
