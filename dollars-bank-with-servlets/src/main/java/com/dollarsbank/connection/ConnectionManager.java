@@ -9,7 +9,7 @@ public class ConnectionManager {
 	// Variables
 	// Connection String is:
 	// Interface + sql Enginge + sql server ip address (localhost is an alias) + port number + db name
-	private static final String URL = "jdbc:mysql://localhost:3306/dollarsbank_db";
+	private static final String URL = "jdbc:mysql://localhost:3306/dollarsbank_servlets";
 	// for mac, add: ?serverTimezone=EST5EDT
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "root";

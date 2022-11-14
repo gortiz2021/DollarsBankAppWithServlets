@@ -1,6 +1,10 @@
 package com.dollarsbank.model;
 
-public class User{
+import java.io.Serializable;
+
+public class User implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	// Variables come from the columns in the table named "user"
 	// The table is in the "progress_checker" database
