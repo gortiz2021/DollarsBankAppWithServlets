@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import = "com.dollarsbank.dao.ItemsDAO" %> 
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.DriverManager"%>	
+<%@ page import="java.sql.SQLException"%>	
+
 <!DOCTYPE html>
+<jsp:useBean id="ItemsDAO" class="com.dollarsbank.dao.ItemsDAO" scope="session"/>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -40,6 +48,59 @@
 	</nav>
 
 	<h1>Welcome! You are successfully logged in.</h1>
+	
+	<div>
+	<form method = "post">
+		<table border = 5 cellpadding = 5>
+		<tr>
+			<td>Name</td>
+			<td>Code</td>
+			<td>Price</td>
+		</tr>
+			<%
+				ResultSet rs;
+				
+				String query = "select * from items;";
+				
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					String url = "jdbc:mysql://localhost:3306/dollarsbank_servlets";
+					String username = "root";
+					String password = "root";
+					Connection conn = DriverManager.getConnection(url, username, password);
+					
+					PreparedStatement pstmt = conn.prepareStatement(query);
+					
+					System.out.println(pstmt);
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()) {
+				%>
+			<tr>
+				
+				<td><%= rs.getString("item_name") %></td>
+				<td><%= rs.getString("item_code")%></td>
+				<td><%= rs.getDouble("item_price")%></td>
+			</tr>
+
+				<%
+					}
+				%>
+		</table>
+			<%
+					conn.close();
+				}
+				catch (SQLException  e) {
+					e.printStackTrace();
+				} 
+			%>
+		
+	
+	</form>
+	
+	
+		
+	</div>
 
 </body>
 </html>
