@@ -50,13 +50,12 @@
 	<h1>Welcome! You are successfully logged in.</h1>
 	
 	<div>
-	<form method = "post">
-		<table border = 5 cellpadding = 5>
-		<tr>
-			<td>Name</td>
-			<td>Code</td>
-			<td>Price</td>
-		</tr>
+		<table border = "5" cellpadding = "5" style = "width:50%" allign = "center">
+			<tr>
+				<td>Name</td>
+				<td>Code</td>
+				<td>Price</td>
+			</tr>
 			<%
 				ResultSet rs;
 				
@@ -94,10 +93,29 @@
 					e.printStackTrace();
 				} 
 			%>
+	</div>
+	
+	<!-- copy jumbotron code from bootstrap website or just include h1 tag at top of page to give the page a title -->
+	<div class="jumbotron jumbotron-fluid">
+	
+		<h2>Enter an item you would like to add to your list.</h2>
+
+		<!-- copy login form from bootstrap or create your own form -->
+		<!-- make sure to set both inputs with required attribute -->
+		<form action="GetItemByIdServlet" method=post>
+			<div class="form-group">
+				<label for="item-name">Item code</label> <input type=text
+					id="item-name" name="item-name" class="form-control">
+			</div>
+			
+
+			<input type="submit" value="Add to List" class="btn btn-dark">
+		</form>
+
+	
 		
-	
-	</form>
-	
+		
+		
 	
 		
 	</div>

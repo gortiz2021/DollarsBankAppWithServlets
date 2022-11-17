@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				request.getSession().setAttribute("currentUser", username);
+				request.getSession().setAttribute("currentUser", uname);
 				RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
 				rd.forward(request, response);
 			}

@@ -50,4 +50,43 @@ public class ItemsDAO {
 		return itemsArr;
 	}
 	
+	public List<Items> getItemById(String code) throws ClassNotFoundException {
+		
+		ResultSet rs;
+		
+		List<Items> itemsArr = new ArrayList<>();
+		
+		String query = "select * from items where item_code = ?;";
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/dollarsbank_servlets";
+			String username = "root";
+			String password = "root";
+			Connection conn = DriverManager.getConnection(url, username, password);
+			
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, code);
+			
+			System.out.println(pstmt);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Items items = new Items();
+				items.setItem_id(rs.getInt("item_id"));
+				items.setItem_name(rs.getString("item_name"));
+				items.setItem_code(rs.getString("item_code"));
+				items.setItem_price(rs.getDouble("item_price"));
+				itemsArr.add(items);
+			}
+			
+			conn.close();
+		}
+		catch (SQLException  e) {
+			e.printStackTrace();
+		} 
+		
+		return itemsArr;
+	}
 }
